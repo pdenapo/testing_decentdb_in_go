@@ -6,6 +6,7 @@ import (
 
 	_ "github.com/mattn/go-sqlite3"
 	_ "github.com/sphildreth/decentdb/bindings/go/decentdb-go"
+	_ "turso.tech/database/tursogo"
 )
 
 func testInsert(t *testing.T, driver string) {
@@ -83,7 +84,10 @@ func TestInsertSqlite(t *testing.T) {
 	testInsert(t, "sqlite3")
 }
 
-/*/
 func TestInsertDecentDb(t *testing.T) {
 	testInsert(t, "decentdb")
-}*/
+}
+
+func TestInsertDecentTurso(t *testing.T) {
+	testInsert(t, "turso")
+}
