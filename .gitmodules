@@ -1,0 +1,3 @@
+[submodule "decentdb"]
+	path = decentdb
+	url = https://github.com/sphildreth/decentdb
