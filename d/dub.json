@@ -1,0 +1,15 @@
+{
+	"description": "A minimal D application.",
+	"license": "MIT",
+	"authors": [
+		"Pablo De Nápoli"
+	],
+	"copyright": "Copyright © 2026, Pablo De Nápoli",
+	"name": "decent_db_d",
+	"importPaths":["../decentdb/include"],
+	"lflags": [
+    "-L../decentdb/target/debug",
+    "-rpath=../decentdb/target/debug",
+    "-ldecentdb"
+	]
+}
