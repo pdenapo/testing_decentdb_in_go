@@ -6,10 +6,10 @@
 	],
 	"copyright": "Copyright © 2026, Pablo De Nápoli",
 	"name": "decent_db_d",
-	"importPaths":["../decentdb/include"],
+	"importPaths":["../vendor/decentdb/include"],
 	"lflags": [
-    "-L../decentdb/target/debug",
-    "-rpath=../decentdb/target/debug",
+    "-L../vendor/decentdb/target/debug",
+    "-rpath=../vendor/decentdb/target/debug",
     "-ldecentdb"
 	]
 }

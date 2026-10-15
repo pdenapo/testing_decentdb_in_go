@@ -5,7 +5,7 @@ edition = "2024"
 
 [dependencies]
 
-decentdb = {path="../decentdb/crates/decentdb"}
+decentdb = {path="../vendor/decentdb/crates/decentdb"}
 turso = {path="../vendor/turso/bindings/rust/"}
 tokio = { version = "1", features = ["full"] }
 

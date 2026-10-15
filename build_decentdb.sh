@@ -1,4 +1,4 @@
-#!/bin/bash
+[B#!/bin/bash
 set -euo pipefail
-pushd decentdb/crates/decentdb
+pushd vendor/decentdb/crates/decentdb
 cargo build 

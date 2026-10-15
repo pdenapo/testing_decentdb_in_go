@@ -1,8 +1,8 @@
 
 gcc \
-  -I../decentdb/include \
+  -I../vendor/decentdb/include \
   app.c \
-  -L../decentdb/target/debug \
-  -Wl,-rpath,../decentdb/target/debug \
+  -L../vendor/decentdb/target/debug \
+  -Wl,-rpath,../vendor/decentdb/target/debug \
   -ldecentdb \
   -o app

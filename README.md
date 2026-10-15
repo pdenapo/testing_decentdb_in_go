@@ -1,3 +1,15 @@
+This repository contains test for different embededd sql databases. It might be helpfull as example of how to use
+them in different languages.
+
+# Sqlite 
+
+Is by far the most used embedded database in the world. 
+
+# Turso
+
+Is a reimplemntation of Sqlite in rust with additional features.
+
+# DecentDb
 
 Decentdb is an embedded database created by Steven Hildreth, which provides
 an interesting alternative to Sqlite.
@@ -17,4 +29,7 @@ But it does not work with Bun Orm.
 
 Todo: portar el driver de turso para aceptar el dialecto postgresql.
 
- 
+# Duckdb
+
+Is an embedded database for analytical work-flows (using a columnar-oriented storage). It has greater compatibility 
+with Postgresql.

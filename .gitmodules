@@ -1,3 +1,6 @@
 [submodule "decentdb"]
 	path = decentdb
 	url = https://github.com/sphildreth/decentdb
+[submodule "vendor/decentdb"]
+	path = vendor/decentdb
+	url = https://github.com/sphildreth/decentdb.git
