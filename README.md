@@ -15,6 +15,6 @@ git clone --recurse-submodules
 Conclusions so far: decentdb can be used with simple explicit sql queries.
 But it does not work with Bun Orm.
 
-
+Todo: portar el driver de turso para aceptar el dialecto postgresql.
 
  

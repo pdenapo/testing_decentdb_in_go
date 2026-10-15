@@ -1,4 +1,4 @@
-package bun_test
+package basic_tests
 
 import (
 	"database/sql"
@@ -10,7 +10,7 @@ import (
 )
 
 func testInsert(t *testing.T, driver string) {
-	t.Log("Runign test for driver ", driver)
+	t.Log("Runing test for driver ", driver)
 	db, err := sql.Open(driver, ":memory:")
 	if err != nil {
 		t.Fatal("Error en Open ", err)
@@ -88,6 +88,10 @@ func TestInsertDecentDb(t *testing.T) {
 	testInsert(t, "decentdb")
 }
 
-func TestInsertDecentTurso(t *testing.T) {
+func TestInsertTurso(t *testing.T) {
 	testInsert(t, "turso")
+}
+
+func TestInsertDuckDb(t *testing.T) {
+	testInsert(t, "duckdb")
 }

@@ -22,8 +22,8 @@ type User struct {
 	ID        int64     `bun:",pk"`
 	Name      string    `bun:",notnull"`
 	Email     string    `bun:",unique,notnull"`
-	CreatedAt time.Time `bun:",nullzero,notnull,default:current_timestamp"`
-	UpdatedAt time.Time `bun:",nullzero,notnull,default:current_timestamp"`
+	CreatedAt time.Time `bun:",nullzero,nullzero,notnull,default:current_timestamp"`
+	UpdatedAt time.Time `bun:",nullzero,nullzero,notnull,default:current_timestamp"`
 }
 
 func main() {
