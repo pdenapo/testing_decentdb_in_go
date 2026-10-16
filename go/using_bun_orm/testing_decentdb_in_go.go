@@ -3,6 +3,7 @@ package main
 import (
 	"context"
 	"database/sql"
+	"fmt"
 	"log"
 	"time"
 
@@ -18,17 +19,16 @@ https://bun.uptrace.dev/guide/golang-orm.html#defining-models */
 
 type User struct {
 	bun.BaseModel `bun:"table:users,alias:u"`
-
-	ID        int64     `bun:",pk"`
-	Name      string    `bun:",notnull"`
-	Email     string    `bun:",unique,notnull"`
-	CreatedAt time.Time `bun:",nullzero,nullzero,notnull,default:current_timestamp"`
-	UpdatedAt time.Time `bun:",nullzero,nullzero,notnull,default:current_timestamp"`
+	ID            int64     `bun:",pk,autoincrement"`
+	Name          string    `bun:",notnull"`
+	Email         string    `bun:",unique,notnull"`
+	CreatedAt     time.Time `bun:",nullzero,nullzero,notnull,default:current_timestamp"`
+	UpdatedAt     time.Time `bun:",nullzero,nullzero,notnull,default:current_timestamp"`
 }
 
 func main() {
 	print("testing bun orm for decentdb")
-	sqldb, err := sql.Open("decentdb", "file:/tmp/app.ddb")
+	sqldb, err := sql.Open("decentdb", ":memory:")
 	if err != nil {
 		log.Fatal(err)
 	}
@@ -50,12 +50,6 @@ func main() {
 	if err != nil {
 		log.Fatal(err)
 	}
-
-	db.Exec(`INSERT INTO "users" ("id", "name", "email", "created_at", "updated_at") VALUES (0, 'Alice', 'alice@example.com', DEFAULT, DEFAULT), (0, 'Bob', 'bob@example.com', DEFAULT, DEFAULT) RETURNING "created_at", "updated_at"INSERT INTO "users" ("id", "name", "email", "created_at", "updated_at") VALUES (0, 'Alice', 'alice@example.com', DEFAULT, DEFAULT), (0, 'Bob', 'bob@example.com', DEFAULT, DEFAULT) RETURNING "created_at", "updated_at"`)
-	if err != nil {
-		log.Fatal(err)
-	}
-
 	users := []*User{
 		{Name: "Alice", Email: "alice@example.com"},
 		{Name: "Bob", Email: "bob@example.com"},
@@ -65,5 +59,12 @@ func main() {
 	if err != nil {
 		log.Fatal(err)
 	}
+
+	var usersObtained []User
+	err = db.NewSelect().Model(&usersObtained).Scan(ctx)
+	if err != nil {
+		log.Fatal(err)
+	}
+	fmt.Println(usersObtained)
 
 }

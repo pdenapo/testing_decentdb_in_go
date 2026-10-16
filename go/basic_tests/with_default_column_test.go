@@ -77,8 +77,12 @@ func testInsertWithDefaultColumn(t *testing.T, driver string) {
 	}
 }
 
-/* sqlite, decentdb, turso no soportan esto */
+/* sqlite,turso do not support this */
 
 func TestInsertWithDefaultColumDuckDb(t *testing.T) {
 	testInsertWithDefaultColumn(t, "duckdb")
+}
+
+func TestInsertWithDefaultColumDecentdb(t *testing.T) {
+	testInsertWithDefaultColumn(t, "decentdb")
 }

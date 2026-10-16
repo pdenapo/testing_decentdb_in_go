@@ -1,0 +1,3 @@
+CREATE TABLE IF NOT EXISTS "users" ("id" BIGSERIAL NOT NULL, "name" VARCHAR NOT NULL, "email" VARCHAR NOT NULL, "created_at" TIMESTAMPTZ NOT NULL DEFAULT current_timestamp, "updated_at" TIMESTAMPTZ NOT NULL DEFAULT current_timestamp, PRIMARY KEY ("id"), UNIQUE ("email"));
+INSERT INTO "users" ("id", "name", "email", "created_at", "updated_at") VALUES (DEFAULT, 'Alice', 'alice@example.com', DEFAULT, DEFAULT) RETURNING "id", "created_at", "updated_at";
+INSERT INTO "users" ("id", "name", "email", "created_at", "updated_at") VALUES (DEFAULT, 'Bob', 'bob@example.com', DEFAULT, DEFAULT) RETURNING "id", "created_at", "updated_at";
